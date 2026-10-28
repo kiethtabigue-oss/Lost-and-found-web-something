@@ -77,7 +77,7 @@
         </form>
 
         {{-- Quick Demo Credentials Pill Bar --}}
-        <div class="lf-demo mt-4 pt-3 text-center">
+        {{-- <div class="lf-demo mt-4 pt-3 text-center">
             <span class="lf-demo-title fw-semibold d-block mb-2">Quick demo fill</span>
             <div class="d-flex flex-wrap justify-content-center gap-1">
                 <button type="button" class="btn btn-sm py-1 px-2 demo-fill-btn"
@@ -93,7 +93,7 @@
                     <i class="bi bi-person me-1 text-success"></i>Resident
                 </button>
             </div>
-        </div>
+        </div> --}}
 
         <p class="lf-register text-center small mt-4 mb-0">
             Don't have an account?
@@ -106,15 +106,15 @@
 
 <script>
 (() => {
-    /* ------------------------------------------------------------------
-       Auth form behaviour (unchanged functionality)
-       ------------------------------------------------------------------ */
-    document.querySelectorAll('.demo-fill-btn').forEach(btn => {
-        btn.addEventListener('click', function () {
-            document.getElementById('email').value = this.dataset.email;
-            document.getElementById('password').value = this.dataset.password;
-        });
-    });
+    // /* ------------------------------------------------------------------
+    //    Auth form behaviour (unchanged functionality)
+    //    ------------------------------------------------------------------ */
+    // document.querySelectorAll('.demo-fill-btn').forEach(btn => {
+    //     btn.addEventListener('click', function () {
+    //         document.getElementById('email').value = this.dataset.email;
+    //         document.getElementById('password').value = this.dataset.password;
+    //     });
+    // });
 
     const toggleBtn = document.getElementById('togglePasswordBtn');
     toggleBtn?.addEventListener('click', function () {
