@@ -57,7 +57,7 @@
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link position-relative" href="#">
+                        <a class="nav-link position-relative notification-bell-link" href="#">
                             <i class="bi bi-bell"></i>
                             @if(auth()->user()->unreadNotifications()->count() > 0)
                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"

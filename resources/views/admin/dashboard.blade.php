@@ -4,6 +4,36 @@
 @section('page-title', 'Dashboard')
 
 @section('content')
+@if(auth()->user()->isAdmin())
+{{-- Admin Quick Action Card --}}
+<div class="card border-0 shadow-sm mb-4 bg-primary text-white" style="background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);">
+    <div class="card-body p-4 d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+        <div>
+            <div class="d-flex align-items-center gap-2 mb-1">
+                <span class="badge bg-white text-primary fw-bold font-monospace">ADMIN CONSOLE</span>
+                <span class="small text-white-50">{{ $stats['total_barangays'] }} Barangays &bull; {{ $stats['total_barangay_admins'] }} Admins</span>
+            </div>
+            <h5 class="fw-bold mb-1">Community Jurisdiction & Account Control</h5>
+            <p class="mb-0 text-white-50 small">Manage barangays, add new barangays, rename jurisdictions, set zone boundaries, and assign moderator accounts.</p>
+        </div>
+        <div class="d-flex flex-wrap gap-2">
+            <a href="{{ route('admin.barangays.create') }}" class="btn btn-light text-primary fw-semibold shadow-sm text-nowrap">
+                <i class="bi bi-plus-circle me-1"></i> Add Barangay
+            </a>
+            <a href="{{ route('admin.barangays.index') }}" class="btn btn-outline-light fw-semibold text-nowrap">
+                <i class="bi bi-geo-alt me-1"></i> Barangays & Zones
+            </a>
+            <a href="{{ route('admin.accounts.index') }}" class="btn btn-outline-light fw-semibold text-nowrap">
+                <i class="bi bi-person-badge me-1"></i> Barangay Accounts
+            </a>
+            <a href="{{ route('admin.audit-logs.index') }}" class="btn btn-outline-light fw-semibold text-nowrap">
+                <i class="bi bi-clock-history me-1"></i> Audit Logs
+            </a>
+        </div>
+    </div>
+</div>
+@endif
+
 {{-- Stats Row 1: Report Type Totals --}}
 <div class="row g-3 mb-4">
     <div class="col-xl-3 col-md-6">

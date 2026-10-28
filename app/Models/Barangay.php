@@ -46,6 +46,26 @@ class Barangay extends Model
     }
 
     /**
+     * @return HasMany<User, $this>
+     */
+    public function admins(): HasMany
+    {
+        return $this->hasMany(User::class)->whereHas('role', function ($query) {
+            $query->where('slug', 'barangay_admin');
+        });
+    }
+
+    /**
+     * @return HasMany<User, $this>
+     */
+    public function residents(): HasMany
+    {
+        return $this->hasMany(User::class)->whereHas('role', function ($query) {
+            $query->where('slug', 'resident');
+        });
+    }
+
+    /**
      * @return HasMany<Report, $this>
      */
     public function reports(): HasMany

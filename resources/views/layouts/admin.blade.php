@@ -60,6 +60,15 @@
             </a>
 
             <div class="nav-section mt-3">Community</div>
+            <a href="{{ route('admin.barangays.index') }}" class="nav-link {{ request()->routeIs('admin.barangays.index') || request()->routeIs('admin.barangays.show') || request()->routeIs('admin.barangays.edit') ? 'active' : '' }}">
+                <i class="bi bi-geo-alt"></i> Barangays & Zones
+            </a>
+            <a href="{{ route('admin.barangays.create') }}" class="nav-link {{ request()->routeIs('admin.barangays.create') ? 'active' : '' }}">
+                <i class="bi bi-plus-circle"></i> Add Barangay
+            </a>
+            <a href="{{ route('admin.accounts.index') }}" class="nav-link {{ request()->routeIs('admin.accounts.*') ? 'active' : '' }}">
+                <i class="bi bi-person-badge"></i> Barangay Accounts
+            </a>
             <a href="#" class="nav-link">
                 <i class="bi bi-map"></i> Community Map
             </a>
@@ -68,16 +77,12 @@
             </a>
 
             <div class="nav-section mt-3">Administration</div>
-            <a href="#" class="nav-link">
-                <i class="bi bi-people"></i> User Management
+            <a href="{{ route('admin.audit-logs.index') }}" class="nav-link {{ request()->routeIs('admin.audit-logs.*') ? 'active' : '' }}">
+                <i class="bi bi-clock-history"></i> Audit Logs
             </a>
             <a href="#" class="nav-link">
                 <i class="bi bi-bar-chart-line"></i> Analytics
             </a>
-            <a href="#" class="nav-link">
-                <i class="bi bi-clock-history"></i> Audit Logs
-            </a>
-
             @if(auth()->user()->isSuperAdmin())
             <a href="#" class="nav-link">
                 <i class="bi bi-gear"></i> System Settings
@@ -106,7 +111,7 @@
             <div class="d-flex align-items-center gap-3">
                 {{-- Notifications --}}
                 <div class="position-relative">
-                    <a href="#" class="text-dark text-decoration-none">
+                    <a href="#" class="text-dark text-decoration-none notification-bell-link">
                         <i class="bi bi-bell fs-5"></i>
                         @if(auth()->user()->unreadNotifications()->count() > 0)
                         <span class="badge bg-danger rounded-pill notification-badge">

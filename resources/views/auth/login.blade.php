@@ -74,6 +74,10 @@
             <button type="submit" class="btn lf-submit w-100 py-2 fw-semibold">
                 <i class="bi bi-box-arrow-in-right me-1"></i> Sign In
             </button>
+
+            <a href="{{ route('home') }}" class="btn btn-outline-secondary w-100 mt-3 py-2 fw-semibold">
+                <i class="bi bi-house-door me-1"></i> Home Dashboard
+            </a>
         </form>
 
         {{-- Quick Demo Credentials Pill Bar --}}

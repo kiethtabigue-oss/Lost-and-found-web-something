@@ -36,6 +36,8 @@ class DashboardController extends Controller
             'active_reports' => (clone $query)->whereIn('status', ['approved', 'active', 'possible_match'])->count(),
             'recovered_reports' => (clone $query)->whereIn('status', ['recovered', 'reunited'])->count(),
             'pending_claims' => RecoveryClaim::where('status', 'pending')->count(),
+            'total_barangays' => \App\Models\Barangay::count(),
+            'total_barangay_admins' => User::whereHas('role', fn ($q) => $q->where('slug', 'barangay_admin'))->count(),
         ];
 
         $stats['total_reports'] = $stats['total_lost_property'] + $stats['total_found_property']
